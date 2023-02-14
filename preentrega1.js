@@ -6,11 +6,10 @@ function saludar(){
 }
 saludar()
 
-
-console.log("Recuerde que si la estadia tiene una duración que supera los 10 días tiene un descuento del 10%, si supera los 20 dias tiene un 20% en el total.")
-let estadia = prompt("Ingrese la cantidad de dias de estadía.");
+let nombre_mascota = prompt ("Ingrese el nombre de su mascota.");
+console.log("Recuerde que si la estadia tiene una duración que supera los 10 días tiene un descuento del 10%, si supera los 20 dias tiene un 20% en el total.");
+let estadia = prompt("Ingrese la cantidad de dias de estadía."); 
 estadia = parseInt(estadia);
-
 
 let dia_por_tamanio=0;
 
@@ -38,13 +37,17 @@ else{
 monto_por_tamanio();
 
 let monto_total = dia_por_tamanio * estadia;
-let monto_descuento;
-
+let monto_descuento=0;
 
 function descuento_estadia(){
-if( estadia>=10 && estadia<=20){
+if(estadia<10){
+    console.log("No tiene descuento.")
+    descuento= 0;
+    
+}
+else if( estadia>=10 && estadia<=20){
     let descuento = (monto_total * 10) /100;
-    console.log( "El monto de descuento es de", descuento , "pesos");
+    console.log( "El monto de descuento es de", descuento , "pesos.");
     let monto_descuento= monto_total-descuento;
     console.log("El monto total con descuento es de", monto_descuento);
     return descuento        
@@ -57,16 +60,70 @@ else if(estadia>=20){
     return descuento;
 }
 }
-    
+
 descuento_estadia();
 
 
-let contador=0;
-do{
-    console.log("Muchas gracias por elegirnos")
-    console.log("Hoy es el dia", contador, "de tu perrito en Pet Hotel");
+
+
+let confirmacion = prompt("CONFIRMAR CUIDADO: SI O NO");
+
+
+
+function confirmacion_de_cuidados(cuidado_uno){
     
-    contador ++;
+    if( confirmacion == "NO" || confirmacion == "no" && confirmacion != "SI"){
+        console.log("El cuidado fue cancelado.")
+        console.log("¡Gracias por visitar nuestra página!");
+    }
+    
+    else if ( confirmacion == "SI" || confirmacion == "si" && confirmacion != "NO"){
+        
+        console.log( "Su reserva fue confirmada." );
+
+        
+        let numero_telefono = prompt ("Ingrese su numero de teléfono");
+        
+    class Resumen{
+
+        constructor(nombre_mascota, estadia, numero_telefono){
+            this.nombre_mascota = nombre_mascota;
+            this.estadia = estadia;
+            this.numero_telefono= numero_telefono;
+        }
+
+        get_datos(){
+            console.log("<--DATOS DEL CUIDADO-->");
+            console.log("Nombre de la mascota:", this.nombre_mascota);
+            console.log("Dias de estadia en Pet Hotel:", this.estadia);
+            console.log("Número de teléfono:", this.numero_telefono );  
+        }
+        
+    }
+    
+    let cuidado_uno = new Resumen ( nombre_mascota, estadia , numero_telefono );
+    console.log ( cuidado_uno )
+    cuidado_uno.get_datos();
+
+
+    console.log("Muchas gracias por elegirnos");
+
+
+    let contador=0;
+    do{
+        console.log("Hoy es el dia", contador, "de tu perrito en Pet Hotel");
+        
+        contador ++;
+
+        function dias_en_PetHotel(){
+            console.log( nombre_mascota, "te manda un perrisaludo!")
+        }
+        let saludos = [contador];
+        saludos.forEach(dias_en_PetHotel)
+    }
+    while(contador<=estadia)
 }
-while(contador<=estadia)
+
+}
+confirmacion_de_cuidados()
 
