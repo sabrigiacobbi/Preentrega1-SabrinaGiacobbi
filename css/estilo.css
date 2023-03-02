@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid&display=swap');
+
+
+
+.body{
+    margin: 0;
+    padding: 0;
+    background-color: #95C0DD;
+}
+
+.contenedor_padre{
+    width:  90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.contenedor_padre_secciones{
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    max-height: 800px;
+    position: relative;
+    background-color: #95C0DD;
+}
+.contenedor_secciones{
+    background-color: #6BA0C4;
+    width: 90%;
+    border-radius: 7px;
+}
+
+header {
+    width: 100%;
+    height: 20%;
+    margin-top: 5px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-radius: 4px;
+}
+.lista_secciones{
+    display: flex;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.69);
+}
+.lista_secciones li {
+    list-style-type: none;
+    font-family: "Italiana";
+    
+}
+.lista_secciones li a {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.69);
+    text-decoration: none;
+    padding: 0px 20px;
+    color: #FFFFFF;
+    margin-left: 70px;
+}
+.secciones:hover {
+    border: 1px solid #FF5733;
+    background-color: #FF5733;
+    border-radius: 8px;
+}
+.contenedor_num1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+.texto_principal{
+    text-align: center;
+    border-radius: 8px;
+    width: 60%;
+    margin-right: 25%;
+}
+.texto_principal h1{
+    font-family: 'Londrina Solid', cursive;
+    color:#FF5733;
+    text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
+    font-size: 4rem;
+    align-self: center;
+}
+.texto_principal p{
+    color: beige;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+}
+
+.imagen_principal{
+    width: 70%;
+    height: 60%;
+    margin-left: 15%;
+    margin-top: 10%;
+    align-items: center;
+    border-radius: 7px;
+}
+
+
+
+
+
+
+
+
+/*REGISTRO*/
+.titulo_registrate{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-family: 'Londrina Solid', cursive;
+    color:#FF5733;
+    text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
+    margin: 3% 0%;
+}
+
+.label_form{
+    display: flex;
+    justify-content: center;
+    color: beige;
+    font-size: 20px;
+}
+.input_form{
+    border-radius: 5px;
+    border: #6BA0C4;
+    margin: 2% 40%;
+    width: 20%;
+    height: 30px;
+}
+#boton_registro{
+    border-radius: 12px;
+    margin: 3% 45% 1%;
+    background-color: #6BA0C4;
+    width: 150px;
+    height: 40px;
+    font-size: 20px;
+    font-family: "Italiana";
+}
+#inicio_sesion{
+    border-radius: 12px;
+    margin: 1% 44%;
+    background-color: #6BA0C4;
+    width: 180px;
+    height: 40px;
+    font-size: 20px;
+    font-family: "Italiana";
+}
+.titulo_inicio_sesion{
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        font-family: 'Londrina Solid', cursive;
+        color:#FF5733;
+        text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
+        margin: 3% 0%;
+}
+
+
+
+/*INICIO DE SESION*/
+#nombre_mascota{
+    display: flex;
+
+}
+#tamanio_mascota{
+    display: flex;
+    
+}
+
+.boton_info{
+    display: flex;
+    margin: 3%;
+}

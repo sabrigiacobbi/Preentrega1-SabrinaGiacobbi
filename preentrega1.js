@@ -1,20 +1,77 @@
 
 
-function saludar(){
-    let usuario = prompt ("Ingrese su nombre.");
-    console.log("Hola", usuario , "!Bienvenido/a a Pet Hotel.");
-}
-saludar()
+let lista_usuarios = [];
 
-let nombre_mascota = prompt ("Ingrese el nombre de su mascota.");
-console.log("Recuerde que si la estadia tiene una duración que supera los 10 días tiene un descuento del 10%, si supera los 20 dias tiene un 20% en el total.");
-let estadia = prompt("Ingrese la cantidad de dias de estadía."); 
+function usuarios_registrados(){
+
+    let nombre_usuario = document.getElementById("nombre_usuario");
+    let num_usuario= document.getElementById("num_usuario");
+    let contrasenia_usuario = document.getElementById("contrasenia");
+
+    
+    let usuario = {nombre: nombre_usuario.value, numero:num_usuario.value,contrasenia: contrasenia_usuario.value};
+
+    lista_usuarios.push(usuario);
+
+    let arreglo_JSON = JSON.stringify(lista_usuarios);
+
+    localStorage.setItem("lista_usuario", arreglo_JSON);
+
+}
+
+
+
+function sesion_usuario(){
+
+    let usuario_de_lista = localStorage.getItem("lista_usuarios");
+
+    usuario_de_lista = JSON.parse(usuario_de_lista);
+
+    let nombre_usuario = document.getElementById("nombre_usuario").value;
+    let num_usuario = document.getElementById("num_usuario")
+    let contrasenia_usuario = document.getElementById("contrasenia");
+
+
+
+    for ( let usuario of lista_usuarios){
+
+        if( nombre_usuario ==  usuario.nombre && num_usuario == usuario.num_usuario && contrasenia == usuario.contrasenia){
+            document.body.innerHTML=
+            '<a href="../secciones/inicio_sesion">INGRESAR A PET HOTEL</a>'
+        }
+    
+    else{
+            document.body.innerHTML = `<h1>Usuario no encontrado ${nombre_usuario}</h1>
+`
+        }
+    }
+    } 
+
+let boton_registro = document.getElementById("boton_registro");
+
+let boton_de_inicio = document.getElementById(inicio_sesion);
+
+boton_registro.addEventListener( "click", usuarios_registrados);
+boton_de_inicio.addEventListener("click", sesion_usuario);
+
+
+
+
+
+
+let lista_cuidados = [];
+
+
+
+let nombre_mascota = document.getElementById("nombre_mascota");
+
+let estadia = document.getElementById("estadia_mascota"); 
 estadia = parseInt(estadia);
 
 let dia_por_tamanio=0;
 
 function monto_por_tamanio(){
-    let tamanio_perro = prompt ("Ingrese si su perro es de tamaño chico, mediano o grande.");
+    let tamanio_perro = document.getElementById("tamanio_perro");
 
 if( typeof(estadia) == "number" && tamanio_perro == "chico" || tamanio_perro == "Chico"){
     dia_por_tamanio = 2000;
