@@ -4,9 +4,9 @@ let lista_usuarios = [];
 
 function usuarios_registrados(){
 
-    let nombre_usuario = document.getElementById("nombre_usuario");
-    let num_usuario= document.getElementById("num_usuario");
-    let contrasenia_usuario = document.getElementById("contrasenia");
+    let nombre_usuario = document.getElementById("nombre_usuario").value;
+    let num_usuario= document.getElementById("num_usuario").value;
+    let contrasenia_usuario = document.getElementById("contrasenia").value;
 
     
     let usuario = {nombre: nombre_usuario.value, numero:num_usuario.value,contrasenia: contrasenia_usuario.value};
@@ -36,8 +36,7 @@ function sesion_usuario(){
     for ( let usuario of lista_usuarios){
 
         if( nombre_usuario ==  usuario.nombre && num_usuario == usuario.num_usuario && contrasenia == usuario.contrasenia){
-            document.body.innerHTML=
-            '<a href="../secciones/inicio_sesion">INGRESAR A PET HOTEL</a>'
+            
         }
     
     else{

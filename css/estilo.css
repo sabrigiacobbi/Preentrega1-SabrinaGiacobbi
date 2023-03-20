@@ -5,7 +5,7 @@
 .body{
     margin: 0;
     padding: 0;
-    background-color: #95C0DD;
+    background-color: whitesmoke;
 }
 
 .contenedor_padre{
@@ -24,12 +24,12 @@
     min-height: 600px;
     max-height: 800px;
     position: relative;
-    background-color: #95C0DD;
 }
 .contenedor_secciones{
-    background-color: #6BA0C4;
-    width: 90%;
-    border-radius: 7px;
+    background-color: #E6EBC1;
+
+    width: 95%;
+    border-radius: 3px;
 }
 
 header {
@@ -56,45 +56,46 @@ header {
     color: rgba(0, 0, 0, 0.69);
     text-decoration: none;
     padding: 0px 20px;
-    color: #FFFFFF;
+    color: #96C68E;
     margin-left: 70px;
 }
 .secciones:hover {
-    border: 1px solid #FF5733;
-    background-color: #FF5733;
+    border: 1px solid #D28936;
+    background-color: #D28936;
     border-radius: 8px;
 }
-.contenedor_num1{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-}
+
 .texto_principal{
     text-align: center;
-    border-radius: 8px;
-    width: 60%;
-    margin-right: 25%;
+
 }
 .texto_principal h1{
     font-family: 'Londrina Solid', cursive;
-    color:#FF5733;
-    text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
+    color:beige;
+    text-shadow: -2px -2px 1px #96C68E, 2px 2px 1px #96C68E, -2px 2px 1px #96C68E, 2px -2px 1px #96C68E;
     font-size: 4rem;
     align-self: center;
+    margin: 20px;
+
 }
-.texto_principal p{
-    color: beige;
+.texto_principal1{
+    color: #96C68E;
     font-size: 22px;
+}
+.texto_principal2{
+    font-size: 22px;
+    background-color:#96C68E;
+    color: antiquewhite;
+
+}
+.seccion_imagen_principal{
     display: flex;
     justify-content: center;
 }
-
 .imagen_principal{
     width: 70%;
     height: 60%;
-    margin-left: 15%;
-    margin-top: 10%;
+    margin-top: 2%;
     align-items: center;
     border-radius: 7px;
 }
@@ -112,20 +113,20 @@ header {
     display: flex;
     justify-content: center;
     font-family: 'Londrina Solid', cursive;
-    color:#FF5733;
-    text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;
+    color: beige;
+    text-shadow: -2px -2px 1px #96C68E, 2px 2px 1px #96C68E, -2px 2px 1px #96C68E, 2px -2px 1px #96C68E;
     margin: 3% 0%;
 }
 
 .label_form{
     display: flex;
     justify-content: center;
-    color: beige;
+    color: #5DA535;
     font-size: 20px;
 }
 .input_form{
     border-radius: 5px;
-    border: #6BA0C4;
+    border: 1px solid #5DA535;
     margin: 2% 40%;
     width: 20%;
     height: 30px;
@@ -133,7 +134,9 @@ header {
 #boton_registro{
     border-radius: 12px;
     margin: 3% 45% 1%;
-    background-color: #6BA0C4;
+    background-color: #96C68E;
+    border: 1px solid #5DA535;
+    color: beige;
     width: 150px;
     height: 40px;
     font-size: 20px;
@@ -142,7 +145,9 @@ header {
 #inicio_sesion{
     border-radius: 12px;
     margin: 1% 44%;
-    background-color: #6BA0C4;
+    background-color: #96C68E;
+    border: 1px solid #96C68E;
+    color: beige;
     width: 180px;
     height: 40px;
     font-size: 20px;
