@@ -21,29 +21,24 @@
         </header>
     </div>
         <main>
-            <h1 class="titulo_registrate">Registrate para saber más!</h1>
-            <label class="label_form" for="">Nombre y Apellido</label>
-            <input  type="text" class="input_form" id="nombre_usuario">
+            <div class="formulario_registro">
+                <h1 class="titulo_registrate">Registrate para saber más!</h1>
 
-            <br>
+                <input  type="text" placeholder="Nombre y Apellido" class="input_form" id="nombre_usuario">
+                <input type="text" placeholder="Numero de telefono" class="input_form" id="num_usuario">
+                <input type="email" placeholder="Email" class="input_form" id="email">
+                <input type="password" placeholder="Contraseña" class="input_form" id="contrasenia">
 
-            <label class="label_form"  for="">Numero de telefono</label>
-            <input type="text" class="input_form" id="num_usuario">
 
-            <br>
-
-            <label class="label_form" for="">Contraseña</label>
-            <input type="text" class="input_form" id="contrasenia">
-
-            <br>
+                <p class="link_formulario">¿Ya tenes cuenta? <a href="../secciones/pagina_oficial.html">Ingresa aquí</a></p>
 
             <button id="boton_registro">REGISTRATE</button>
-            <button  id="inicio_sesion">INICIAR SESIÓN</button>
-
+            </div>
 
 
 
         </main>
+    <script src="sweetalert2.all.min.js"></script>
     <script src="../preentrega1.js"></script>
 </body>
 </html>

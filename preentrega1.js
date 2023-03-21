@@ -1,15 +1,20 @@
 
 
+
+let boton__registro = document.getElementById("boton_registro");
+boton_registro.addEventListener("click" , usuarios_registrados );
+
 let lista_usuarios = [];
 
 function usuarios_registrados(){
 
-    let nombre_usuario = document.getElementById("nombre_usuario").value;
-    let num_usuario= document.getElementById("num_usuario").value;
-    let contrasenia_usuario = document.getElementById("contrasenia").value;
+    let nombre_usuario = document.getElementById("nombre_usuario");
+    let num_usuario= parseInt( document.getElementById("num_usuario"));
+    let email_usuario = document.getElementById("email")
+    let contrasenia_usuario = document.getElementById("contrasenia");
 
     
-    let usuario = {nombre: nombre_usuario.value, numero:num_usuario.value,contrasenia: contrasenia_usuario.value};
+    let usuario = {nombre: nombre_usuario.value, numero:num_usuario.value,contrasenia: contrasenia_usuario.value, email:email_usuario.value};
 
     lista_usuarios.push(usuario);
 
@@ -17,7 +22,21 @@ function usuarios_registrados(){
 
     localStorage.setItem("lista_usuario", arreglo_JSON);
 
+
+    Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'Something went wrong!',
+    footer: '<a href="">Why do I have this issue?</a>'
+
+})
+
 }
+
+
+
+
+
 
 
 
