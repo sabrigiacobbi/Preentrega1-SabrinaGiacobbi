@@ -1,20 +1,38 @@
 
 
 
-let boton__registro = document.getElementById("boton_registro");
-boton_registro.addEventListener("click" , usuarios_registrados );
+
 
 let lista_usuarios = [];
 
 function usuarios_registrados(){
 
     let nombre_usuario = document.getElementById("nombre_usuario");
-    let num_usuario= parseInt( document.getElementById("num_usuario"));
+    let num_usuario= document.getElementById("num_usuario");
     let email_usuario = document.getElementById("email")
     let contrasenia_usuario = document.getElementById("contrasenia");
 
-    
-    let usuario = {nombre: nombre_usuario.value, numero:num_usuario.value,contrasenia: contrasenia_usuario.value, email:email_usuario.value};
+
+    let usuario = {
+        nombre: nombre_usuario.value, 
+        numero:parseInt (num_usuario.value),
+        contrasenia: contrasenia_usuario.value, 
+        email:email_usuario.value
+    };
+
+    if(nombre_usuario.value === "", num_usuario.value === "", email_usuario.value === "", contrasenia_usuario.value === ""){
+        alert("Todos los campos son obligatorios.")
+    }
+    else{
+        Swal.fire({
+            icon: 'success',
+            title: 'FELICITACIONES!',
+            text: 'Te registraste con éxito',
+            footer: '<a href="./secciones./inicio_sesion">Iniciar sesión</a>'
+            })
+    }
+
+
 
     lista_usuarios.push(usuario);
 
@@ -23,15 +41,8 @@ function usuarios_registrados(){
     localStorage.setItem("lista_usuario", arreglo_JSON);
 
 
-    Swal.fire({
-    icon: 'error',
-    title: 'Oops...',
-    text: 'Something went wrong!',
-    footer: '<a href="">Why do I have this issue?</a>'
-
-})
-
 }
+
 
 
 
@@ -46,32 +57,30 @@ function sesion_usuario(){
 
     usuario_de_lista = JSON.parse(usuario_de_lista);
 
+
+
     let nombre_usuario = document.getElementById("nombre_usuario").value;
-    let num_usuario = document.getElementById("num_usuario")
-    let contrasenia_usuario = document.getElementById("contrasenia");
+    let contrasenia_usuario = document.getElementById("contrasenia").value;
 
 
 
     for ( let usuario of lista_usuarios){
 
-        if( nombre_usuario ==  usuario.nombre && num_usuario == usuario.num_usuario && contrasenia == usuario.contrasenia){
+        if( nombre_usuario ==  usuario.nombre && contrasenia_usuario == usuario.contrasenia){
             
         }
     
     else{
-            document.body.innerHTML = `<h1>Usuario no encontrado ${nombre_usuario}</h1>
-`
+
+        Swal.fire({
+            icon: 'error',
+            title: 'Usuario no encontrado.',
+            text: 'Intentelo nuevamente o registrese.',
+            footer: '<a href="../secciones/registrarse.html">Registrate</a>'
+            })
         }
     }
     } 
-
-let boton_registro = document.getElementById("boton_registro");
-
-let boton_de_inicio = document.getElementById(inicio_sesion);
-
-boton_registro.addEventListener( "click", usuarios_registrados);
-boton_de_inicio.addEventListener("click", sesion_usuario);
-
 
 
 

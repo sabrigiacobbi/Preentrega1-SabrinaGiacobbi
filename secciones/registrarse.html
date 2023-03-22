@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Registrate!</title>
     <link rel="stylesheet" href="../css/estilo.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="body">
     <div class="contendor_padre_secciones">
@@ -24,21 +25,29 @@
             <div class="formulario_registro">
                 <h1 class="titulo_registrate">Registrate para saber más!</h1>
 
-                <input  type="text" placeholder="Nombre y Apellido" class="input_form" id="nombre_usuario">
-                <input type="text" placeholder="Numero de telefono" class="input_form" id="num_usuario">
-                <input type="email" placeholder="Email" class="input_form" id="email">
-                <input type="password" placeholder="Contraseña" class="input_form" id="contrasenia">
+                <input  type="text" placeholder="Nombre y Apellido" class="input_form" id="nombre_usuario" required>
+                <input type="text" placeholder="Numero de telefono" class="input_form" id="num_usuario" required>
+                <input type="email" placeholder="Email" class="input_form" id="email" required>
+                <input type="password" placeholder="Contraseña" class="input_form" id="contrasenia" required>
 
 
-                <p class="link_formulario">¿Ya tenes cuenta? <a href="../secciones/pagina_oficial.html">Ingresa aquí</a></p>
+                <p class="link_formulario">¿Ya tenes cuenta? <a href="../secciones/inicio_sesion.html">Ingresa aquí</a></p>
 
-            <button id="boton_registro">REGISTRATE</button>
+            <button id="boton_registro" onclick="usuarios_registrados()">REGISTRATE</button>
             </div>
 
 
 
         </main>
-    <script src="sweetalert2.all.min.js"></script>
+        <footer  id="footer">
+            <h4 class="titulo_footer">Muchas gracias por tu visita a nuestra página</h4>
+            <div class="div_iconos_footer">
+                <button class="boton_footer"><a href="https://www.instagram.com/sabrigiacobbi/"><img class="icono_footer" src="../imagenes/instagram.png" alt="icono de instagram"></a></button>
+                <p class="texto_footer">Cualquier consulta no dudes en preguntar!</p>
+                <button class="boton_footer"><a href="https://wa.pe/LffLYe77Ru" target="_blank"><img class="icono_footer" src="../imagenes/whatsapp.png" alt="icono de whatsapp"></a></button>
+            </div>
+        </footer>
+        <script src="sweetalert2.all.min.js"></script>
     <script src="../preentrega1.js"></script>
 </body>
 </html>
