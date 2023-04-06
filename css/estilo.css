@@ -206,7 +206,19 @@ header {
     color: #5e9540;
 }
 
-
+.container {
+    display: grid; 
+    grid-auto-columns: 1fr; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 0.5fr 0.4fr 0.4fr 0.4fr 3.3fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+        ". ."
+        ". ."
+        ". ."
+        ". ."
+        ". ."; 
+  }
 
 /*REGISTRO*/
 .titulo_registrate{
@@ -321,6 +333,156 @@ header {
 }
 
 
+/*PAGINA OFICIAL*/
+
+.titulo_pagina_oficial{
+    font-family: 'Londrina Solid', cursive;
+    color: #96C68E;
+    font-size: 23px;
+
+}
+.contenedor_iniciosesion{
+    display: flex;
+    flex-direction: column;
+}
+.input_form_paginaoficial{
+    border-radius: 5px;
+    border: 1px solid #5DA535;
+    width: 40%;
+    height: 30px;
+    align-self: center;
+    padding: 12px;
+    margin-bottom: 10px;
+}
+.contenedor_padre_paginaoficial{
+    display: flex;
+}
+
+.label_form_paginaoficial{
+    text-align: center;
+}
+.lista_tarifas li{
+    color: #5e9540;
+}
+.division_lista_tarifas{
+    margin:5%;
+    margin-top: 7%;
+    width: 600px;
+}
+.parrafo_estadia{
+    background-color: #a1b695;
+    border-radius: 8px;
+    padding: 15px;
+    margin-right: 10px;
+    width: 55%;
+}
+
+.total_presupuesto{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.resultado_presupuesto_sin_descuento{
+    height: 25px;
+    width: 120px;
+    border: 1px solid #5e9540;
+    border-radius: 5px ;
+    align-self: center ;
+    margin: 10px;
+}
+.input_form_presupuesto{
+    border-radius: 5px;
+    border: 1px solid #5DA535;
+    width: 100px;
+    height: 20px;
+}
+
+.input_form_paginaoficial_fecha{
+    border-radius: 8px;
+    border: 1px solid #96C68E;
+    width: 130px;
+
+}
+
+
+.contenedor_presupuesto{
+    display: flex;
+    flex-direction: column;
+}
+.div_fecha{
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+.botones_confirmacion{
+    display: flex;
+    
+}
+#boton_confirma_cuidado{
+    border-radius: 12px;
+    margin-top: 3%;
+    margin-left: 31%;
+    margin-bottom: 5%;
+    background-color: #96C68E;
+    border: 1px solid #5DA535;
+    color: beige;
+    width: 80px;
+    height: 40px;
+    font-size: 18px;
+    font-family: "Italiana";
+    cursor: pointer;
+}
+#boton_cancela_cuidado{
+    border-radius: 12px;
+    margin: 3% 2% 5%;
+    background-color: #96C68E;
+    border: 1px solid #5DA535;
+    color: beige;
+    width: 80px;
+    height: 40px;
+    font-size: 18px;
+    font-family: "Italiana";
+    cursor: pointer;
+}
+.total_presupuesto{
+    display: flex;
+}
+
+.division_data_cuidados{
+    display: flex;
+}
+
+.data_cuidado{
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    padding: 20px;
+    background-color: #cddcc5;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.data_imagen {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}  
+.data_h2{
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.data_parrafo{
+    font-size: 18px;
+    text-align: center;
+    margin-top: 20px;
+}
+
 /*NOSOTROS*/
 .galeria {
     display: grid;
@@ -334,14 +496,14 @@ header {
     margin-left: 8%;
     padding-top: 50px;
 
-  }
+}
 .galeria__imagen {
     position: relative;
     cursor: pointer;
     overflow: hidden;
-  }
-  
-  .galeria__imagen--1::before, .galeria__imagen--2::before, .galeria__imagen--3::before, .galeria__imagen--4::before, .galeria__imagen--5::before, .galeria__imagen--6::before, .galeria__imagen--7::before, .galeria__imagen--8::before {
+}
+
+.galeria__imagen--1::before, .galeria__imagen--2::before, .galeria__imagen--3::before, .galeria__imagen--4::before, .galeria__imagen--5::before, .galeria__imagen--6::before, .galeria__imagen--7::before, .galeria__imagen--8::before {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -355,76 +517,76 @@ header {
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-  }
-  
-  .galeria__imagen--1::before {
+}
+
+.galeria__imagen--1::before {
     content: "AMOR";
-  }
-  
-  .galeria__imagen--2::before {
+}
+
+.galeria__imagen--2::before {
     content: "ABRAZOS";
-  }
-  
-  .galeria__imagen--3::before {
+}
+
+.galeria__imagen--3::before {
     content: "DEDICACION";
-  }
-  
-  .galeria__imagen--4::before {
+}
+
+.galeria__imagen--4::before {
     content: "TIEMPO";
-  }
-  
-  .galeria__imagen--5::before {
+}
+
+.galeria__imagen--5::before {
     content: "CONSCIENCIA";
-  }
-  
-  .galeria__imagen--6::before {
+}
+
+.galeria__imagen--6::before {
     content: "PASIÓN";
-  }
-  
-  .galeria__imagen--7::before {
+}
+
+.galeria__imagen--7::before {
     content: "PACIENCIA";
-  }
-  
-  .galeria__imagen--8::before {
+}
+
+.galeria__imagen--8::before {
     content: "RESPETO";
-  }
-  
-  .galeria__imagen:hover::before {
+}
+
+.galeria__imagen:hover::before {
     transform: translate(0);
-  }
-  .galeria__imagen img {
+}
+.galeria__imagen img {
     width: 100%;
     height: 100%;
-  }
-  
-  .imagenes__galeria {
+}
+
+.imagenes__galeria {
     border-radius: 8px;
-  }
-  
-  .galeria__imagen--1 {
+}
+
+.galeria__imagen--1 {
     grid-area: img1;
     width: 100%;
     height: 100%;
     display: flex;
     margin: auto;
-  }
-  
-  .galeria__imagen--2, .galeria__imagen--3, .galeria__imagen--5, .galeria__imagen--6, .galeria__imagen--7, .galeria__imagen--8 {
+}
+
+.galeria__imagen--2, .galeria__imagen--3, .galeria__imagen--5, .galeria__imagen--6, .galeria__imagen--7, .galeria__imagen--8 {
     width: 100%;
     height: 100%;
     display: flex;
     margin: auto;
-  }
-  
-  .galeria__imagen--2 {
+}
+
+.galeria__imagen--2 {
     grid-area: img2;
-  }
-  
-  .galeria__imagen--3 {
+}
+
+.galeria__imagen--3 {
     grid-area: img3;
-  }
-  
-  .galeria__imagen--4 {
+}
+
+.galeria__imagen--4 {
     grid-area: img4;
     width: 100%;
     margin: 50px;
@@ -433,7 +595,7 @@ header {
     border-radius: 8px;
     display: flex;
     margin: auto;
-  }
+}
 
 .texto4, .titulo4 {
     color: #96C68E;
@@ -447,21 +609,21 @@ header {
 .galeria__imagen--5 {
     grid-area: img5;
     margin-top: 10px;
-  }
-  
-  .galeria__imagen--6 {
+}
+
+.galeria__imagen--6 {
     grid-area: img6;
-  }
-  
-  .galeria__imagen--7 {
+}
+
+.galeria__imagen--7 {
     grid-area: img7;
-  }
-  
-  .galeria__imagen--8 {
+}
+
+.galeria__imagen--8 {
     grid-area: img8;
     height: 200px;
-  }
-  
+}
+
 
 /*FOOTER*/
 #footer{

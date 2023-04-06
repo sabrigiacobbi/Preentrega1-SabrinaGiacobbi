@@ -1,213 +1,211 @@
 
 
+fetch("cuidados.json")
+  .then(response => response.json())
+  .then(data =>{
+    console.log(data)
+    data.forEach( data => {
+      const imgElement = document.querySelector('.data_imagen');
+      imgElement.src = data.imagen;
+      document.querySelector('.data_h2').textContent = data.title;
+      document.querySelector('.data_parrafo').textContent = data.descripcion;
+    });
+  })
+  .catch(error => console.error(error))
 
 
 
 let lista_usuarios = [];
 
-function usuarios_registrados(){
+function usuarios_registrados() {
+  let nombre_usuario = document.getElementById("nombre_usuario");
+  let num_usuario = document.getElementById("num_usuario");
+  let contrasenia_usuario = document.getElementById("contrasenia");
 
-    let nombre_usuario = document.getElementById("nombre_usuario");
-    let num_usuario= document.getElementById("num_usuario");
-    let email_usuario = document.getElementById("email")
-    let contrasenia_usuario = document.getElementById("contrasenia");
+  let usuario = {
+    nombre: nombre_usuario.value,
+    numero: parseInt(num_usuario.value),
+    contrasenia: contrasenia_usuario.value,
+  };
 
+  if (
+    (nombre_usuario.value === "",
+    num_usuario.value === "",
+    contrasenia_usuario.value === "")
+  ) {
+    alert("Todos los campos son obligatorios.");
+  } else {
+    Swal.fire({
+      icon: "success",
+      title: "FELICITACIONES!",
+      text: "Te registraste con éxito",
+      footer:"Ya puedes iniciar sesión",
+    });
+  }
 
-    let usuario = {
-        nombre: nombre_usuario.value, 
-        numero:parseInt (num_usuario.value),
-        contrasenia: contrasenia_usuario.value, 
-        email:email_usuario.value
-    };
+  lista_usuarios.push(usuario);
 
-    if(nombre_usuario.value === "", num_usuario.value === "", email_usuario.value === "", contrasenia_usuario.value === ""){
-        alert("Todos los campos son obligatorios.")
-    }
-    else{
-        Swal.fire({
-            icon: 'success',
-            title: 'FELICITACIONES!',
-            text: 'Te registraste con éxito',
-            footer: '<a href="./secciones./inicio_sesion">Iniciar sesión</a>'
-            })
-    }
+  let arreglo_JSON = JSON.stringify(lista_usuarios);
 
-
-
-    lista_usuarios.push(usuario);
-
-    let arreglo_JSON = JSON.stringify(lista_usuarios);
-
-    localStorage.setItem("lista_usuario", arreglo_JSON);
-
-
+  localStorage.setItem("lista_usuario", arreglo_JSON);
 }
 
 
 
+function sesion_usuario() {
+  let lista_usuario = JSON.parse(localStorage.getItem("lista_usuario"));
+  console.log(lista_usuario[0].nombre, "traido del local storage");
+
+  let nombre_usuario = document.getElementById("nombre_usuario").value;
+  let num_usuario = document.getElementById("num_usuario").value;
+  let contrasenia_usuario = document.getElementById("contrasenia").value;
+
+  if (
+    (nombre_usuario == lista_usuario[0].nombre,
+    num_usuario == lista_usuario[0].numero,
+    contrasenia_usuario == lista_usuario[0].contrasenia)
+  ) {
+    window.location.replace(
+      "http://127.0.0.1:5500/secciones/pagina_oficial.html"
+    );
+    console.log(window.location.href);
+  } else {
+    Swal.fire({
+      icon: "error",
+      title: "Usuario no encontrado.",
+      text: "Intentelo nuevamente o registrese.",
+    });
+  }
+}
+
+/*PAGINA OFICIAL*/
 
 
+function monto_por_tamanio() {
+	let dia_por_tamanio = 0;
+  let estadia = parseInt(document.getElementById("estadia_mascota").value);
+  let tamanio_perro = document.getElementById("tamanio_perro").value;
 
-
-
-
-function sesion_usuario(){
-
-    let usuario_de_lista = localStorage.getItem("lista_usuarios");
-
-    usuario_de_lista = JSON.parse(usuario_de_lista);
-
-
-
-    let nombre_usuario = document.getElementById("nombre_usuario").value;
-    let contrasenia_usuario = document.getElementById("contrasenia").value;
-
-
-
-    for ( let usuario of lista_usuarios){
-
-        if( nombre_usuario ==  usuario.nombre && contrasenia_usuario == usuario.contrasenia){
-            
-        }
-    
-    else{
-
-        Swal.fire({
-            icon: 'error',
-            title: 'Usuario no encontrado.',
-            text: 'Intentelo nuevamente o registrese.',
-            footer: '<a href="../secciones/registrarse.html">Registrate</a>'
-            })
-        }
-    }
-    } 
-
-
-
-
-
-let lista_cuidados = [];
-
-
-
-let nombre_mascota = document.getElementById("nombre_mascota");
-
-let estadia = document.getElementById("estadia_mascota"); 
-estadia = parseInt(estadia);
-
-let dia_por_tamanio=0;
-
-function monto_por_tamanio(){
-    let tamanio_perro = document.getElementById("tamanio_perro");
-
-if( typeof(estadia) == "number" && tamanio_perro == "chico" || tamanio_perro == "Chico"){
+  let resultado_presupuesto_sin_descuento = document.querySelector(
+    ".resultado_presupuesto_sin_descuento "
+    );
+	
+  if(typeof(estadia) == "number" && tamanio_perro == "chico" || tamanio_perro == "Chico" && typeof(estadia) == "number") {
     dia_por_tamanio = 2000;
-    console.log("Si la mascota es de tamaño chico y la estadia es por", estadia, "dias, el monto total es de", estadia *2000 ,"pesos.");
-}
-else if( typeof(estadia) == "number" && tamanio_perro == "mediano" || tamanio_perro == "Mediano"){
-    dia_por_tamanio = 2500;
-    console.log("Si la mascota es de tamaño mediano y la estadia es por", estadia, "dias, el monto total es de", estadia*2500 , "pesos");
+    resultado_presupuesto_sin_descuento = estadia * dia_por_tamanio
+    console.log(resultado_presupuesto_sin_descuento, 'resultado')
+		descuento_estadia(estadia, resultado_presupuesto_sin_descuento);
+  
+  } else if( typeof(estadia) == "number" && tamanio_perro == "mediano" || tamanio_perro == "Mediano" && typeof(estadia) == "number" ) {
+		dia_por_tamanio = 2500;
+    resultado_presupuesto_sin_descuento = estadia * dia_por_tamanio;
+    console.log(resultado_presupuesto_sin_descuento, 'resultado');
+		descuento_estadia(estadia, resultado_presupuesto_sin_descuento);
+	} else if (typeof(estadia) == "number" && tamanio_perro == "grande" || tamanio_perro == "Grande" && typeof(estadia) == "number") {
+		dia_por_tamanio = 3000;
+    resultado_presupuesto_sin_descuento = estadia * dia_por_tamanio
+    descuento_estadia(estadia, resultado_presupuesto_sin_descuento)
+	} else {
+		alert('Error, vuelva a intentarlo')
+	}
+
+
 
 }
-else if( typeof (estadia) == "number" && tamanio_perro == "grande" || tamanio_perro == "Grande"){
-    dia_por_tamanio = 3000;
-    console.log("Si la mascota es de tamaño grande y la estadia es por", estadia, "dias, el monto total es de", estadia*3000 , "pesos");
-}
-else{
-    console.log("error, vuelva a intentarlo.");
-    monto_por_tamanio();
-}
-}
-monto_por_tamanio();
 
-let monto_total = dia_por_tamanio * estadia;
-let monto_descuento=0;
 
-function descuento_estadia(){
-if(estadia<10){
-    console.log("No tiene descuento.")
-    descuento= 0;
+function descuento_estadia(estadia, presupuesto) {
+	let descuento = 0;
+	let monto_total = 0;
+
+  if (estadia < 10) {
+		console.log(presupuesto)
+  } else if (estadia >= 10 && estadia <= 20) {
+    descuento = presupuesto * 0.1;
+    monto_total = presupuesto - descuento;	
     
-}
-else if( estadia>=10 && estadia<=20){
-    let descuento = (monto_total * 10) /100;
-    console.log( "El monto de descuento es de", descuento , "pesos.");
-    let monto_descuento= monto_total-descuento;
-    console.log("El monto total con descuento es de", monto_descuento);
-    return descuento        
-}
-else if(estadia>=20){
-    let descuento = (monto_total*20) / 100;
-    console.log ("El monto de descuento es de", descuento , "pesos");
-    let monto_descuento = monto_total-descuento;
-    console.log("El monto total con descuento es de", monto_descuento);
-    return descuento;
-}
-}
-
-descuento_estadia();
-
-
-
-
-let confirmacion = prompt("CONFIRMAR CUIDADO: SI O NO");
-
-
-
-function confirmacion_de_cuidados(cuidado_uno){
     
-    if( confirmacion == "NO" || confirmacion == "no" && confirmacion != "SI"){
-        console.log("El cuidado fue cancelado.")
-        console.log("¡Gracias por visitar nuestra página!");
-    }
-    
-    else if ( confirmacion == "SI" || confirmacion == "si" && confirmacion != "NO"){
-        
-        console.log( "Su reserva fue confirmada." );
-
-        
-        let numero_telefono = prompt ("Ingrese su numero de teléfono");
-        
-    class Resumen{
-
-        constructor(nombre_mascota, estadia, numero_telefono){
-            this.nombre_mascota = nombre_mascota;
-            this.estadia = estadia;
-            this.numero_telefono= numero_telefono;
-        }
-
-        get_datos(){
-            console.log("<--DATOS DEL CUIDADO-->");
-            console.log("Nombre de la mascota:", this.nombre_mascota);
-            console.log("Dias de estadia en Pet Hotel:", this.estadia);
-            console.log("Número de teléfono:", this.numero_telefono );  
-        }
-        
-    }
-    
-    let cuidado_uno = new Resumen ( nombre_mascota, estadia , numero_telefono );
-    console.log ( cuidado_uno )
-    cuidado_uno.get_datos();
-
-
-    console.log("Muchas gracias por elegirnos");
-
-
-    let contador=0;
-    do{
-        console.log("Hoy es el dia", contador, "de tu perrito en Pet Hotel");
-        
-        contador ++;
-
-        function dias_en_PetHotel(){
-            console.log( nombre_mascota, "te manda un perrisaludo!")
-        }
-        let saludos = [contador];
-        saludos.forEach(dias_en_PetHotel)
-    }
-    while(contador<=estadia)
+    console.log("El monto total con descuento es de", monto_total);
+  } else if (estadia >= 20) {
+    descuento = presupuesto * 0.2;
+    console.log("El monto de descuento es de", descuento, "pesos");
+    monto_total = presupuesto - descuento;
+    console.log("El monto total con descuento es de", monto_total); 
+  }
 }
 
+
+
+function cancelacion_de_cuidados() {
+	let cancela_cuidado = document.getElementById("boton_cancela_cuidado").value
+  if(cancela_cuidado) {
+		console.log("se cancelo")
+    alert("EL CUIDADO FUE CANCELADO")
+		return false
+	}
 }
-confirmacion_de_cuidados()
+
+lista_cuidados= [];
+function confirmacion_de_cuidados() {
+	let confirma_cuidado = document.getElementById("boton_confirma_cuidado").value;
+  let nombre_mascota = document.getElementById("nombre_mascota").value;
+  let estadia = document.getElementById("estadia_mascota").value;
+  let fecha_desde = document.getElementById("fecha_desde").value;
+  let fecha_hasta = document.getElementById("fecha_hasta").value;
+  let tamanio_mascota = document.getElementById("tamanio_perro").value;
+
+  let cuidados_confirmados = {
+    nombre_mascota: nombre_mascota.value,
+    estadia: estadia.value,
+    fecha_desde: fecha_desde.value,
+    fecha_hasta: fecha_hasta.value,
+    tamanio_mascota: tamanio_mascota.value,
+  };
+  if(confirma_cuidado) {
+		alert("se reservo el cuidado");
+    let card = document.getElementById("seccion_card")
+    card.style.backgroundColor= "#cddcc5";
+    card.style.borderRadius = "10px";
+    card.style.width = "400px"
+    card.style.height="500px"
+
+
+    let titulo_Card = document.createElement("h1");
+    titulo_Card.innerText = "CUIDADO CONFIRMADO";
+    titulo_Card.style.color= "#99b68a"
+
+    let parrafo_card1 = document.createElement("p");
+    parrafo_card1.innerText = "El nombre de la mascota a cuidar es:", nombre_mascota;
+    
+    let parrafo_card2 = document.createElement("p");
+    parrafo_card2.innerText = "El cuidado es desde", fecha_desde ;
+
+    let parrafo_card3 = document.createElement("p");
+    parrafo_card3.innerText = "El cuidado es hasta", fecha_hasta;
+
+    let parrafo_card4 = document.createElement("p");
+    parrafo_card4.innerText = estadia;
+    
+    card.appendChild(titulo_Card);
+    card.appendChild(parrafo_card1);
+    card.appendChild(parrafo_card2);
+    card.appendChild(parrafo_card3);
+    card.appendChild(parrafo_card4);
+    // card.appendChild(parrafo_card5);
+
+	 return true	
+	}
+
+  lista_cuidados.push(cuidados_confirmados);
+  let arreglo = JSON.stringify(cuidados_confirmados);
+  localStorage.setItem("cuidados_confirmados", arreglo)
+}
+
+	
+
+
+
+
+
+
 

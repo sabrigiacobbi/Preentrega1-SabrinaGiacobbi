@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagina Inicial</title>
+    <link rel="stylesheet" href="../css/estilo.css">
 </head>
 <body>
     <header id="header">
@@ -13,33 +14,65 @@
             <nav>
                 <ul class="lista_secciones">
                     <li><a class="secciones" href="../index.html">Volver al Menú</a></li>
-                    <li><a class="secciones" href="./contactanos.html">Contactanos</a></li>
                     <li><a class="secciones" href="./nosotros.html">Nosotros</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     <main>
+        <div class="contenedor_padre_paginaoficial">
 
-        <h2 class="titulo_inicio_sesion">¿Que te gustaria recibir de PetHotel?</h2>
-        <div class="contenedor_iniciosesion">
+            <div class="division_lista_tarifas">
+                <h1 class="titulo_pagina_oficial">Nuestras tarifas son las siguientes:</h1>
+                <ul class="lista_tarifas">
+                <li>Si tu perro es de tamaño chico, el día tiene un costo de $2000.</li>
+                <li>Si tu perro es de tamaño mediano, el día tiene un costo de $2500.</li>
+                <li>Si tu perro es de tamaño grande, el día tiene un costo de $3000.</li>
+            </ul>
+            <p class="parrafo_estadia">Recuerde que si la estadia tiene una duración que supera los 10 días tiene un descuento del 10%, si supera los 20 dias tiene un 20% en el total.</p>
+            </div>
+
+
+            <div class="contenedor_iniciosesion">
     
-        <h3>Si desea programar un cuidado complete la siguiente información.</h3>
+                <h3 class="titulo_pagina_oficial">Si desea programar un cuidado complete la siguiente información.</h3>
     
         
-        <label for="">Nombre de la mascota</label>
-        <input id="nombre_mascota" type="text">
+                <label class="label_form_paginaoficial" for="">Nombre de la mascota.</label>
+                <input  class="input_form_paginaoficial" id="nombre_mascota" type="text">
         
-        <label for="">Duración de la estadía.</label>
-        <p>Recuerde que si la estadia tiene una duración que supera los 10 días tiene un descuento del 10%, si supera los 20 dias tiene un 20% en el total.</p>
-        <input id="estadia_mascota"  type="text">
-    
-        <label for="">Tamaño de la mascota</label>
-        <input id="tamanio_perro"  type="text">
-    
-    
-    
-        <button class="boton_info">Quiero recibir informacion</button>
+                <label class="label_form_paginaoficial"  for="">Duración de la estadía.</label>
+                <input  class="input_form_paginaoficial" id="estadia_mascota"  type="text">
+                
+                <label class="label_form_paginaoficial"  for="">Fecha del cuidado.</label>
+                <div class="div_fecha">
+                    <label class="label_form_paginaoficial"  for="">Desde:</label>
+                    <input  class="input_form_paginaoficial_fecha" id="fecha_desde"  type="text">
+                    <label class="label_form_paginaoficial"  for="">Hasta:</label>
+                    <input  class="input_form_paginaoficial_fecha" id="fecha_hasta"  type="text">
+
+                </div>
+
+                <label class="label_form_paginaoficial"  for="">Tamaño de la mascota.</label>
+                <input  class="input_form_paginaoficial" id="tamanio_perro"  type="text">
+                
+                <div class="contenedor_presupuesto">
+                    <div class="total_presupuesto">
+                        <label for="">Total presupuesto</label>
+                        <button id="hola" onclick="monto_por_tamanio()">CALCULAR</button>
+                    </div>
+                    <div class="resultado_presupuesto_sin_descuento"></div>
+                </div>
+                
+                <label class="label_form_paginaoficial"  for="">CONFIRMA CUIDADO.</label>
+                <div class="botones_confirmacion">
+                    <button id="boton_confirma_cuidado" value="si" onclick="confirmacion_de_cuidados()">SI</button>
+                    <button id="boton_cancela_cuidado" value="no"  onclick="cancelacion_de_cuidados()">NO</button>
+                </div>
+            </div>
+        </div>    
+        <section id="seccion_card"></section>
+
     
         <footer  id="footer">
             <h4 class="titulo_footer">Muchas gracias por tu visita a nuestra página</h4>
@@ -47,11 +80,10 @@
                 <button class="boton_footer"><a href="https://www.instagram.com/sabrigiacobbi/"><img class="icono_footer" src="../imagenes/instagram.png" alt="icono de instagram"></a></button>
                 <p class="texto_footer">Cualquier consulta no dudes en preguntar!</p>
                 <button class="boton_footer"><a href="https://wa.pe/LffLYe77Ru" target="_blank"><img class="icono_footer" src="../imagenes/whatsapp.png" alt="icono de whatsapp"></a></button>
-            </div>
         </footer>
         </div>
     </main>
-    
+    <script src="../preentrega1.js"></script>
 </body>
 </html>
 
